@@ -17,5 +17,5 @@ public interface MenuMapper {
     })
     Menus toMenu(Menu menu);
 
-    Menu
+
 }

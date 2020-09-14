@@ -12,5 +12,5 @@ public interface RestaurantRepository {
     public Optional<Restaurant> getByID(int Id);
     public Restaurant create(Restaurant restaurant);
     public void deleteByID(int id);
-    public void updateByID(int id);
+    public void updateByID(Restaurant restaurant);
 }
