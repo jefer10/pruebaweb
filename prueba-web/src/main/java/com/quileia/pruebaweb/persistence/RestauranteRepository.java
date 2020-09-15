@@ -5,6 +5,7 @@ import com.quileia.pruebaweb.domain.repository.RestaurantRepository;
 import com.quileia.pruebaweb.persistence.crud.RestauranteCrudRepository;
 import com.quileia.pruebaweb.persistence.entity.Restaurante;
 import com.quileia.pruebaweb.persistence.mapper.RestaurantMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.Optional;
 @Repository
 public class RestauranteRepository implements RestaurantRepository {
 
+    @Autowired //para que se intancie automaticamente
     private RestauranteCrudRepository restauranteCrudRepository;
+    @Autowired //
     private RestaurantMapper mapper;
 
 
