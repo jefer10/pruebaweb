@@ -27,12 +27,21 @@ public class Menu {
     @JoinColumn(name = "id_restaurante",insertable = false,updatable = false)//el nombre de la llave foranea en la tabla
     private Restaurante restaurante;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+
     @JoinTable(name = "ingrediente_menu",//tabla de llaves
-            joinColumns = @JoinColumn(name="id_menu",insertable = false,updatable = false),// FK tabla padre
-            inverseJoinColumns = @JoinColumn(name="id_ingrediente",insertable = false,updatable = false))//FK tabla hijo
+            joinColumns = @JoinColumn(name="id_menu",insertable = false,updatable = false),// FK para tabla padre
+            inverseJoinColumns = @JoinColumn(name="id_ingrediente",insertable = false,updatable = false))//FK para tabla hijo
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingrediente> ingredientes;
 
+
+    public Integer getId_menu() {
+        return id_menu;
+    }
+
+    public void setId_menu(Integer id_menu) {
+        this.id_menu = id_menu;
+    }
 
     public Integer getTipo_menu() {
         return tipo_menu;

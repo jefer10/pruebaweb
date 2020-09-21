@@ -18,7 +18,8 @@ public class Ingrediente {
     @Column(name="calorias")
     private Integer calorias;
 
-    @ManyToMany(mappedBy = "ingrediente")
+    //@ManyToMany(mappedBy = "ingrediente")
+    @ManyToMany(targetEntity = Menu.class)
     private List<Menu> menus;
 
     public String getNombre() {

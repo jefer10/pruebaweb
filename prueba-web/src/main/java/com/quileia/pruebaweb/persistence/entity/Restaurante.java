@@ -30,8 +30,25 @@ public class Restaurante {
     @Column(name = "hora_cierre")
     private String hora_cierre;
 
-    @OneToMany(mappedBy = "restaurante")//propiedad de la clase menu
+    @OneToMany(mappedBy = "restaurante",cascade = CascadeType.REMOVE)//propiedad de la clase menu
     private List<Menu> menus;
+
+
+    public Integer getId_restaurante() {
+        return id_restaurante;
+    }
+
+    public void setId_restaurante(Integer id_restaurante) {
+        this.id_restaurante = id_restaurante;
+    }
+
+    public List<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(List<Menu> menus) {
+        this.menus = menus;
+    }
 
     public String getRazon_social() {
         return razon_social;

@@ -1,4 +1,4 @@
-package com.quileia.pruebaweb.persistence;
+package com.quileia.pruebaweb.persistence.crud;
 
 import com.quileia.pruebaweb.domain.Restaurant;
 import com.quileia.pruebaweb.domain.repository.RestaurantRepository;
@@ -73,6 +73,8 @@ public class RestauranteRepository implements RestaurantRepository {
     @Override
     public Restaurant create(Restaurant restaurant) {
         Restaurante restaurante=mapper.toRestaurante(restaurant);
+        System.out.println("###################"+restaurante.getHora_apertura()+" "
+        +restaurante.getRazon_social()+ "###");
         restaurante=restauranteCrudRepository.save(restaurante);
         return mapper.toRestaurant(restaurante);
     }
