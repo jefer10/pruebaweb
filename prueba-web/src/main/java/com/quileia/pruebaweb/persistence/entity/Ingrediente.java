@@ -19,6 +19,7 @@ public class Ingrediente {
     private Integer calorias;
 
     //@ManyToMany(mappedBy = "ingrediente")
+    //@MapsId("id_menu")//para  indicar a que llave pertenece
     @ManyToMany(targetEntity = Menu.class)
     private List<Menu> menus;
 

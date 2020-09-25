@@ -1,4 +1,4 @@
-package com.quileia.pruebaweb.persistence.crud;
+package com.quileia.pruebaweb.domain.repository;
 
 import com.quileia.pruebaweb.domain.Restaurant;
 import com.quileia.pruebaweb.domain.repository.RestaurantRepository;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>add Restaurant</title>
+    <script src="../javascript/enlaze.js"></script>
+    <style>
+            input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+
+            input[type=submit] {
+              width: 100%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+              background-color: #45a049;
+            }
+
+            div {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+    </style>
+</head>
+
+<body>
+
+<h3>Nuevo restaurante</h3>
+
+<div>
+    <form action="http://localhost:8090/restaurante/apiv1/restaurant/save"  method="post">
+        <label for="Rsocial">Razon social</label>
+        <input type="text" id="Rsocial" name="Rsocial" placeholder="Razon social">
+
+        <label for="Ncomercial">Nombre comercial</label>
+        <input type="text" id="Ncomercial" name="Ncomercial" placeholder="Nombre comercial">
+
+        <label for="type">Tipo de restaurante</label>
+        <select id="type" name="type">
+            <option value="1">vegano</option>
+            <option value="2">vegetariano</option>
+            <option value="3">Carnes rojas</option>
+            <option value="4">Aves,pescados-mariscos</option>
+        </select>
+
+        <label for="city">Ciudad de ubicacion</label>
+        <input type="text" id="city" name="city" placeholder="Ciudad">
+
+        <label for="Hapertura">Hora de apertura</label>
+        <input type="text" id="Hapertura" name="Hapertura" placeholder="Hora de apertura">
+
+        <label for="Hcierre">Hora de cierre</label>
+        <input type="text" id="Hcierre" name="Hcierre" placeholder="Hora de cierre">
+
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
