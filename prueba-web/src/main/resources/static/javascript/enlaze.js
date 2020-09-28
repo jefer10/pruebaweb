@@ -7,6 +7,7 @@ function obtenerDatos(){
       console.log(data);
       let fila=document.querySelector('#dato');
       fila.innerHTML= '';
+
       for(let dato of data){
             fila.innerHTML+=`
             <tr>
@@ -17,6 +18,8 @@ function obtenerDatos(){
                 <td>${dato.city}</td>
                 <td>${dato.opening_time}</td>
                 <td>${dato.closing_time}</td>
+                <td><button value=${dato.restaurantId}; onClick="actualizar(this)">Modificar</button></td>
+                <td><button value=${dato.restaurantId} onclick="eliminar('${dato.restaurantId}')">Eliminar</button></td>
             </tr>
             `
       }
@@ -24,38 +27,29 @@ function obtenerDatos(){
       })
 }
 
+var tabla=document.getElementById('table');
 
-function newRestaurant(){
-    let rsocial=document.getElementById("Rsocial").value;
-    let Ncomercial=document.getElementById("Ncomercial").value;
-    let lista=document.getElementById("type").value;
-   // Obtener el valor de la opción seleccionada
-   let type = lista.options[lista.selectedIndex].value;
-   let city=document.getElementById("city").value;
-   let Hapertura=document.getElementById("Hapertura").value;
-   let Hcierre=document.getElementById("Hcierre").value;
-
-
-    let url='http://localhost:8090/restaurante/apiv1/restaurant/save'
-    let data={business_name:`${rsocial}`,
-               tradename:`${Ncomercial}`,
-               type_restaurant:`${type}`,
-               city:`${city}`,
-               opening_time:`${Hapertura}`,
-               closing_time:`${Hcierre}`
-               };
-
-    console.log(rsocial);
-    console.log(type);
-    console.log(JSON.stringify(data));
-
-    //fetch(url,{
-      //        method:'post',
-        //      headers:{'Content-Type': 'application/json'},
-          //    body:JSON.stringify(data)
-    //        })
-      //.then(response => response.json())
-      //.then(data => console.log(data));
-
+function redireccionarUpdate(){
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/actualizar';
+}
+function actualizar(comp){
+    let id=comp.value;
+    console.log(id);
+    localStorage.setItem("ID1",id);
+    redireccionarUpdate();
 
 }
+function eliminar(comp){
+
+    var requestOptions = {
+      method: 'DELETE',
+      redirect: 'follow'
+    };
+    let url='http://localhost:8090/restaurante/apiv1/restaurant/delete/'+comp
+    fetch(url, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/restaurant-list';
+
+}
+

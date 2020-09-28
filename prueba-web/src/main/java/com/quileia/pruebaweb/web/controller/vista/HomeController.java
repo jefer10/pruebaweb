@@ -30,5 +30,12 @@ public class HomeController {
         return restaurant;
     }
 
+    @GetMapping(value = "/actualizar")
+    public ModelAndView actualizar(){
+        ModelAndView update=new ModelAndView();
+        update.setViewName("update");
+        return update;
+    }
+
 
 }

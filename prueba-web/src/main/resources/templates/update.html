@@ -40,18 +40,19 @@
 
 
 
-<body>
+<body onload="leerDato()">
 
 <h3>Nuevo restaurante</h3>
 
 
 <div>
     <form id="formulario">
+
         <label for="Rsocial">Razon social</label>
-        <input type="text" id="Rsocial" name="business_name" placeholder="Razon social">
+        <input type="text" id="Rsocial" name="business_name">
 
         <label for="Ncomercial">Nombre comercial</label>
-        <input type="text" id="Ncomercial" name="tradename" placeholder="Nombre comercial">
+        <input type="text" id="Ncomercial" name="tradename">
 
         <label for="type">Tipo de restaurante</label>
         <select id="type" name="type_restaurant">
@@ -71,10 +72,10 @@
         <input type="text" id="Hcierre" name="closing_time" placeholder="Hora de cierre">
 
 
-        <button type="submit">Crear</button>
+        <button type="submit">Actualizar</button>
     </form>
 </div>
 
-<script src="../javascript/envio.js"></script>
+<script src="../javascript/actualizar.js"></script>
 </body>
 </html>
