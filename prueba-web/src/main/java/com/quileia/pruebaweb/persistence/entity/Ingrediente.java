@@ -23,6 +23,14 @@ public class Ingrediente {
     @ManyToMany(targetEntity = Menu.class)
     private List<Menu> menus;
 
+    public Integer getId_ingrediente() {
+        return id_ingrediente;
+    }
+
+    public void setId_ingrediente(Integer id_ingrediente) {
+        this.id_ingrediente = id_ingrediente;
+    }
+
     public String getNombre() {
         return nombre;
     }

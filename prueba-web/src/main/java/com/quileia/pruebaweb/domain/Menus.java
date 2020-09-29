@@ -1,5 +1,7 @@
 package com.quileia.pruebaweb.domain;
 
+import java.util.List;
+
 public class Menus {
 
     private int menuId;
@@ -7,6 +9,15 @@ public class Menus {
     private String name_menu;
     private double price;
     private Restaurant restaurant;
+    private List<Ingredient> ingredients;
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
     public Restaurant getRestaurant() {
         return restaurant;
