@@ -6,7 +6,7 @@ public class Ingredient {
 
     private int  ingredientId;
     private String name_ingredient;
-    private String calories;
+    private Integer calories;
     private List<Menus> menusI;
 
 
@@ -34,11 +34,11 @@ public class Ingredient {
         this.name_ingredient = name_ingredient;
     }
 
-    public String getCalories() {
+    public Integer getCalories() {
         return calories;
     }
 
-    public void setCalories(String calories) {
+    public void setCalories(Integer calories) {
         this.calories = calories;
     }
 }

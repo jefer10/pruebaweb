@@ -30,27 +30,34 @@ public class IngredienteRepository implements IngredientRepository{
 
     @Override
     public List<Ingredient> getByCalorias(int calorias) {
-
-        return null;
+        List<Ingrediente> ingredienteList=ingredienteCrudRepository.findByCaloria(calorias);
+        List<Ingredient>  ingredientList=ingredienteMapper.toIngredients(ingredienteList);
+        return ingredientList;
     }
 
     @Override
-    public Optional<Ingredient> getByID(int Id) {
-        return Optional.empty();
+    public Optional<Ingredient> getByID(int Id)
+    {
+        Optional<Ingrediente>ingrediente=ingredienteCrudRepository.findById(Id);
+           return ingrediente.map(res->ingredienteMapper.toIngredient(res));
     }
 
     @Override
-    public Ingredient create(Ingredient ingredient) {
-        return null;
+    public Ingredient create(Ingredient ingredient)
+    {
+        Ingrediente ingredient1=ingredienteMapper.toIngrediente(ingredient);
+        Ingrediente ingrediente=ingredienteCrudRepository.save(ingredient1);
+        return ingredienteMapper.toIngredient(ingrediente);
     }
 
     @Override
     public void deleteByID(int id) {
-
+        ingredienteCrudRepository.deleteById(id);
     }
 
     @Override
     public void updateByID(Ingredient ingredient) {
-
+        Ingrediente ingrediente=ingredienteMapper.toIngrediente(ingredient);
+        ingredienteCrudRepository.save(ingrediente);
     }
 }
