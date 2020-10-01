@@ -1,6 +1,7 @@
 package com.quileia.pruebaweb.domain.service;
 
 import com.quileia.pruebaweb.domain.Ingredient;
+
 import com.quileia.pruebaweb.domain.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,11 +27,24 @@ public class IngredientService {
     public Ingredient create(Ingredient ingredient){
         return ingredientRepository.create(ingredient);
     }
-    public void deleteByID(int id){
-        ingredientRepository.deleteByID(id);
+    public Boolean deleteByID(int id){
+        if (getByID(id).isPresent()){
+            ingredientRepository.deleteByID(id);
+            return true;
+        }else {
+            return false;
+        }
     }
-    public void updateByID(Ingredient ingredient){
+    public Boolean updateByID(Ingredient ingredient){
         ingredientRepository.updateByID(ingredient);
+        Optional<Ingredient>ingredient1=getByID(ingredient.getIngredientId());
+        return ingredient1.map(rest -> {
+            if (rest.toString().equals(ingredient1.toString())){
+                return true;
+            }else {
+                return false;
+            }
+        }).orElse(false);
     }
 
 

@@ -6,7 +6,7 @@ import com.quileia.pruebaweb.domain.repository.MenusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.Console;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -49,8 +49,13 @@ public class MenuService {
     }
 
 
-    public void deleteByID(int id){
-        menusRepository.deleteByID(id);
+    public Boolean deleteByID(int id){
+        if (getByID(id).isPresent()){
+            menusRepository.deleteByID(id);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public Menus create(Menus menus) {
