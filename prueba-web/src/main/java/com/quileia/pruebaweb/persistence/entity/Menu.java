@@ -23,9 +23,9 @@ public class Menu {
     @Column(name = "precio")
     private  Double precio;
 
+    @JoinColumn(name = "id_restaurante")//el nombre de la llave foranea en la tabla
     @ManyToOne(optional = true)//para que exista menu sin restaurante
-    @JoinColumn(name = "id_restaurante",insertable = false,updatable = false)//el nombre de la llave foranea en la tabla
-    private Restaurante restaurante;
+    private Restaurante restauranteID;
 
 
     @JoinTable(name = "ingrediente_menu",//tabla de llaves
@@ -67,12 +67,12 @@ public class Menu {
         this.precio = precio;
     }
 
-    public Restaurante getRestaurante() {
-        return restaurante;
+    public Restaurante getRestauranteID() {
+        return restauranteID;
     }
 
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
+    public void setRestauranteID(Restaurante restauranteID) {
+        this.restauranteID = restauranteID;
     }
 
     public List<Ingrediente> getIngredientes() {
@@ -82,4 +82,7 @@ public class Menu {
     public void setIngredientes(List<Ingrediente> ingredientes) {
         this.ingredientes = ingredientes;
     }
+
+
+
 }

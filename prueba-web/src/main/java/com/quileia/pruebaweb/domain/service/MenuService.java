@@ -93,6 +93,8 @@ public class MenuService {
     }
 
 
-
+    public List<Menus> findByTipomenuAndIdrestaurante(int type, int Idresta){
+        return menusRepository.findByTipo_menuAndId_restaurante(type,Idresta);
+    }
 
 }

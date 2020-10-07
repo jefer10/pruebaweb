@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Restaurantes</title>
+    <title>Menus</title>
     <Link href="../CSS/Styles.css" type="text/css"/>
     <style>
         .enlaceboton {    font-family: verdana, arial, sans-serif;
@@ -44,39 +44,35 @@
 
 </head>
 
-<body onload="obtenerDatos()">
-    <div class="tabla-contenedor">
-        <h1>Lista de restaurantes</h1>
+<body onload="obtenerDatosMenu()">
+<div class="tabla-contenedor">
+    <h1> Lista de Menus</h1>
+</div>
+<div>
+    <a href="http://localhost:8090/restaurante/apiv1/usuario/crearMenu" class="enlaceboton">Agregar Menu</a>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <table id="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de menu</th>
+                <th>nombre</th>
+                <th>precio</th>
+                <th>actualizar</th>
+                <th>borrar</th>
+            </tr>
+            </thead>
+
+            <tbody id="dato"> </tbody>
+        </table>
+
     </div>
-    <div>
-        <a href="http://localhost:8090/restaurante/apiv1/usuario/crearRestaurante" class="enlaceboton">Agregar restaurante</a>
-    </div>
+</div>
 
-    <div class="container">
-        <div class="section">
-
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>razon social</th>
-                        <th>nombre comercial</th>
-                        <th>tipo de resturante</th>
-                        <th>ciudad de ubicacion</th>
-                        <th>hora de apertura</th>
-                        <th>hora de cierre</th>
-                        <th>Menus</th>
-                        <th>actualizar</th>
-                        <th>borrar</th>
-                    </tr>
-                </thead>
-
-                <tbody id="dato"> </tbody>
-            </table>
-
-        </div>
-    </div>
-
-   <script src="../javascript/enlaze.js"></script>
+<script src="../javascript/enlazeMenu.js"></script>
 </body>
 </html>

@@ -58,4 +58,9 @@ public class Menus {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return ""+restaurant;
+    }
 }

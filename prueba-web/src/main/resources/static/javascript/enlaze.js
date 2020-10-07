@@ -18,8 +18,10 @@ function obtenerDatos(){
                 <td>${dato.city}</td>
                 <td>${dato.opening_time}</td>
                 <td>${dato.closing_time}</td>
+                <td><button value=${dato.restaurantId}; onClick="menus(this)">Menus</button></td>
                 <td><button value=${dato.restaurantId}; onClick="actualizar(this)">Modificar</button></td>
                 <td><button value=${dato.restaurantId} onclick="eliminar('${dato.restaurantId}')">Eliminar</button></td>
+
             </tr>
             `
       }
@@ -27,10 +29,10 @@ function obtenerDatos(){
       })
 }
 
-var tabla=document.getElementById('table');
+
 
 function redireccionarUpdate(){
-    location.href='http://localhost:8090/restaurante/apiv1/usuario/actualizar';
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/actualizarRestaurante';
 }
 function actualizar(comp){
     let id=comp.value;
@@ -53,3 +55,13 @@ function eliminar(comp){
 
 }
 
+function redireccionarmenu(){
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/menuRestaurante';
+}
+
+function menus(comp){
+    let id=comp.value;
+    console.log(id);
+    localStorage.setItem("ID1",id);
+    redireccionarmenu();
+}

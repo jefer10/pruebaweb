@@ -19,7 +19,7 @@ public interface IngredienteMapper {
             @Mapping(source ="id_ingrediente",  target = "ingredientId"),
             @Mapping(source = "nombre",         target = "name_ingredient"),
             @Mapping(source ="calorias",        target= "calories"),
-            @Mapping(source="menus",            target = "menusI")
+            //@Mapping(source="menus",            target = "menusI")
 
 
     })

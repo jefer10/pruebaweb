@@ -30,7 +30,7 @@ public class Restaurante {
     @Column(name = "hora_cierre")
     private String hora_cierre;
 
-    @OneToMany(mappedBy = "restaurante",cascade = CascadeType.REMOVE)//propiedad de la clase menu
+    @OneToMany(mappedBy = "restauranteID")//propiedad de la clase menu
     private List<Menu> menus;
 
 

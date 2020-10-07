@@ -3,6 +3,7 @@ package com.quileia.pruebaweb.domain.repository;
 import com.quileia.pruebaweb.domain.Menus;
 import com.quileia.pruebaweb.persistence.crud.MenuCrudRepository;
 import com.quileia.pruebaweb.persistence.entity.Menu;
+import com.quileia.pruebaweb.persistence.entity.Restaurante;
 import com.quileia.pruebaweb.persistence.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,15 +37,15 @@ public class MunusRepository implements MenusRepository{
     @Override
     public Optional<Menus> getByID(int Id) {
         Optional<Menu> menu=menuCrudRepository.findById(Id);
-        return menu.map(res->menuMapper.toMenus(res));
+        return menu.map(res->menuMapper.toMenuS(res));
     }
 
     @Override
-    public Menus create(Menus Menus) {
-        Menu menu=menuMapper.toMenu(Menus);
+    public Menus create(Menus menus) {
+        Menu menu=menuMapper.toMenu(menus);
         menu=menuCrudRepository.save(menu);
-        Menus menus=menuMapper.toMenus(menu);
-        return menus;
+        Menus menus1=menuMapper.toMenuS(menu);
+        return menus1;
     }
 
     @Override
@@ -56,5 +57,12 @@ public class MunusRepository implements MenusRepository{
     public void updateByID(Menus menus) {
         Menu menu=menuMapper.toMenu(menus);
         menuCrudRepository.save(menu);
+    }
+
+    @Override
+    public List<Menus> findByTipo_menuAndId_restaurante(int type, int IDrest) {
+        List<Menu> menuList=menuCrudRepository.findByTipo_menuAndId_restaurante(type,IDrest);
+        List<Menus> menusList=menuMapper.toMenuss(menuList);
+        return menusList;
     }
 }

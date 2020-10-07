@@ -10,7 +10,7 @@ import java.util.List;
 public interface IngredienteCrudRepository extends CrudRepository<Ingrediente,Integer> {
 
     @Query(value="SELECT * FROM ingrediente WHERE calorias = :caloria",nativeQuery = true)
-    List<Ingrediente> findByCaloria(int calorias);//como se busca usando sql
+    List<Ingrediente> findByCaloria(int caloria);//como se busca usando sql
 
     @Query(value = "SELECT ingredientes, menu FROM menu, ingrediente_menu, ingrediente WHERE " +
             "ingrediente.id_ingrediente = ingrediente_menu.id_ingrediente AND ingrediente_menu.id_menu = menu.id_menu" +

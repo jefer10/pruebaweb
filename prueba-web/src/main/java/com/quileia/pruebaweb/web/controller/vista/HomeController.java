@@ -30,11 +30,25 @@ public class HomeController {
         return restaurant;
     }
 
-    @GetMapping(value = "/actualizar")
+    @GetMapping(value = "/actualizarRestaurante")
     public ModelAndView actualizar(){
         ModelAndView update=new ModelAndView();
         update.setViewName("update");
         return update;
+    }
+
+    @GetMapping(value = "/Menu-list")
+    public ModelAndView menulist(){
+        ModelAndView menulist = new ModelAndView();
+        menulist.setViewName("menulist");
+        return menulist;
+    }
+
+    @GetMapping(value ="/menuRestaurante")
+    public ModelAndView menuRestaurant(){
+        ModelAndView menuRestaurante=new ModelAndView();
+        menuRestaurante.setViewName("menuRestaurant");
+        return menuRestaurante;
     }
 
 

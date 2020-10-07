@@ -14,5 +14,6 @@ public interface MenusRepository {
     public Menus create(Menus Menus);
     public void deleteByID(int id);
     public void updateByID(Menus menus);
+    public List<Menus>findByTipo_menuAndId_restaurante(int type,int IDrest);
 
 }

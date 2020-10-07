@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menus de restaurante</title>
+    <Link href="../CSS/Styles.css" type="text/css"/>
+    <style>
+        .enlaceboton {    font-family: verdana, arial, sans-serif;
+                       font-size: 10pt;
+                       font-weight: bold;
+                       padding: 4px;
+                       background-color: #ffffcc;
+                       color: #666666;
+                       text-decoration: none;
+                    }
+        .enlaceboton:link,.enlaceboton:visited {
+                       border-top: 1px solid #cccccc;
+                       border-bottom: 2px solid #666666;
+                       border-left: 1px solid #cccccc;
+                       border-right: 2px solid #666666;
+                    }
+        .enlaceboton:hover {
+                        border-bottom: 1px solid #cccccc;
+                       border-top: 2px solid #666666;
+                       border-right: 1px solid #cccccc;
+                       border-left: 2px solid #666666;
+                    }
+
+
+        table {
+                border-collapse: collapse;
+                width: 100%;
+               }
+
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color:#f5f5f5;}
+    </style>
+
+
+</head>
+
+<body onload="menus()">
+<div class="tabla-contenedor">
+    <h1> Lista de Menus por tipo</h1>
+</div>
+
+<h3>Entradas</h3>
+<div class="container">
+    <div class="section">
+
+        <table id="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+
+                <th>nombre</th>
+                <th>precio</th>
+                <th>actualizar</th>
+                <th>borrar</th>
+            </tr>
+            </thead>
+
+            <tbody id="dato"> </tbody>
+        </table>
+
+    </div>
+</div>
+
+<h3>Platos fuertes</h3>
+<div class="container">
+    <div class="section">
+
+        <table id="table1">
+            <thead>
+            <tr>
+                <th>ID</th>
+
+                <th>nombre</th>
+                <th>precio</th>
+                <th>actualizar</th>
+                <th>borrar</th>
+            </tr>
+            </thead>
+
+            <tbody id="dato1"> </tbody>
+        </table>
+
+    </div>
+</div>
+
+<h3>Postres</h3>
+<div class="container">
+    <div class="section">
+
+        <table id="table2">
+            <thead>
+            <tr>
+                <th>ID</th>
+
+                <th>nombre</th>
+                <th>precio</th>
+                <th>actualizar</th>
+                <th>borrar</th>
+            </tr>
+            </thead>
+
+            <tbody id="dato2"> </tbody>
+        </table>
+
+    </div>
+</div>
+
+<h3>Bebidas</h3>
+<div class="container">
+    <div class="section">
+
+        <table id="table3">
+            <thead>
+            <tr>
+                <th>ID</th>
+
+                <th>nombre</th>
+                <th>precio</th>
+                <th>actualizar</th>
+                <th>borrar</th>
+            </tr>
+            </thead>
+
+            <tbody id="dato3"> </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script src="../javascript/menus.js"></script>
+</body>
+</html>

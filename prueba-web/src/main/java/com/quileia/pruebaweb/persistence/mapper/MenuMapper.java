@@ -12,23 +12,26 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring",  uses = {RestaurantMapper.class,IngredienteMapper.class})
+@Mapper(componentModel = "spring",  uses = {RestaurantMapper.class, IngredienteMapper.class})
 public interface MenuMapper {
+
+
     @Mappings({
-            @Mapping(source = "id_menu",     target = "menuId"),
-            @Mapping(source = "tipo_menu",   target = "type_menu"),
-            @Mapping(source = "nombre_menu", target = "name_menu"),
-            @Mapping(source = "precio",      target = "price"),
-            @Mapping(source = "restaurante", target = "restaurant"),
-            @Mapping(source = "ingredientes",target = "ingredients")
+            @Mapping(source = "id_menu",       target = "menuId"),
+            @Mapping(source = "tipo_menu",     target = "type_menu"),
+            @Mapping(source = "nombre_menu",   target = "name_menu"),
+            @Mapping(source = "precio",        target = "price"),
+            @Mapping(source = "ingredientes",  target = "ingredients"),
+            //@Mapping(source = "restauranteID", target = "restaurant")
+
     })
-    Menus toMenus(Menu menu);
+    Menus toMenuS(Menu menu);
     List<Menus> toMenuss(List<Menu> menuList);
 
     @InheritInverseConfiguration
-    //@Mapping(target = "restaurante", ignore = true)
+    //@Mapping(target = "restaurant", ignore = true)
    //@Mapping(target = "ingredientes",ignore = true)
     Menu toMenu(Menus menus);
-    List<Menu> toMenuS(List<Menus> menusLists);
+    List<Menu> toMenus(List<Menus> menusLists);
 
 }

@@ -20,7 +20,7 @@ public class Ingrediente {
 
     //@ManyToMany(mappedBy = "ingrediente")
     //@MapsId("id_menu")//para  indicar a que llave pertenece
-    @ManyToMany(targetEntity = Menu.class)
+    @ManyToMany(mappedBy="ingredientes" ,targetEntity = Menu.class)
     private List<Menu> menus;
 
     public Integer getId_ingrediente() {

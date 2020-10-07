@@ -52,4 +52,14 @@ public class MenuController {
         }
 
     }
+
+    @GetMapping("/find")
+    public ResponseEntity<List<Menus>> findTypeandIdRes(@RequestParam(name = "type",defaultValue = "1") int type, @RequestParam(name = "id",defaultValue = "1") int id){
+        return new ResponseEntity<>(menuService.findByTipomenuAndIdrestaurante(type,id),HttpStatus.OK);
+    }
+
+    @GetMapping("/buscar/{type}/{id}")
+    public ResponseEntity<List<Menus>> find(@PathVariable("type") int type, @PathVariable("id") int id){
+        return new ResponseEntity<>(menuService.findByTipomenuAndIdrestaurante(type,id),HttpStatus.OK);
+    }
 }
