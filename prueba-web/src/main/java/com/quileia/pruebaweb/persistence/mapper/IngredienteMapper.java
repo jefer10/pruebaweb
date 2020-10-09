@@ -18,7 +18,7 @@ public interface IngredienteMapper {
     @Mappings({
             @Mapping(source ="id_ingrediente",  target = "ingredientId"),
             @Mapping(source = "nombre",         target = "name_ingredient"),
-            @Mapping(source ="calorias",        target= "calories"),
+            @Mapping(source ="calorias",        target= "calories")
             //@Mapping(source="menus",            target = "menusI")
 
 
@@ -27,6 +27,7 @@ public interface IngredienteMapper {
     List<Ingredient> toIngredients(List<Ingrediente> ingredientes);
 
     @InheritInverseConfiguration
+    @Mapping(target = "menus", ignore = true)
     Ingrediente toIngrediente(Ingredient ingredient);
     List<Ingrediente> toIngredientes(List<Ingredient> ingredients);
 }

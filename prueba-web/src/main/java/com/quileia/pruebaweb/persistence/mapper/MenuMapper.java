@@ -12,7 +12,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring",  uses = {IngredienteMapper.class})
+@Mapper(componentModel = "spring",  uses = {RestaurantMapper.class,IngredienteMapper.class})
 public interface MenuMapper {
 
 
@@ -23,13 +23,14 @@ public interface MenuMapper {
             @Mapping(source = "precio",        target = "price"),
             @Mapping(source = "ingredientes",  target = "ingredients"),
             @Mapping(source = "restauranteID", target = "restaurantId")
+           // @Mapping(source = "restaurante",   target = "restaurant")
 
     })
     Menus toMenuS(Menu menu);
     List<Menus> toMenuss(List<Menu> menuList);
 
     @InheritInverseConfiguration
-    //@Mapping(target = "restaurant", ignore = true)
+    @Mapping(target = "restaurante", ignore = true)
    //@Mapping(target = "ingredientes",ignore = true)
     Menu toMenu(Menus menus);
     List<Menu> toMenus(List<Menus> menusLists);

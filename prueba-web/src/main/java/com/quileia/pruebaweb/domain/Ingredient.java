@@ -4,19 +4,13 @@ import java.util.List;
 
 public class Ingredient {
 
+    //propiedades de la entidad
     private int  ingredientId;
     private String name_ingredient;
     private Integer calories;
-    private List<Menus> menusI;
 
 
-    public List<Menus> getMenusI() {
-        return menusI;
-    }
 
-    public void setMenusI(List<Menus> menusI) {
-        this.menusI = menusI;
-    }
 
     public int getIngredientId() {
         return ingredientId;

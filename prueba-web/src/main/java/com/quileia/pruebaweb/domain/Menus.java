@@ -4,13 +4,14 @@ import java.util.List;
 
 public class Menus {
 
+    //propiedades de la entidad
     private int menuId;
     private String type_menu;
     private String name_menu;
     private double price;
     private int restaurantId;
 
-    private Restaurant restaurant;
+    //relaciones entre las entidades
     private List<Ingredient> ingredients;
 
 
@@ -20,14 +21,6 @@ public class Menus {
 
     public void setRestaurantId(int restaurantId) {
         this.restaurantId = restaurantId;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
     }
 
     public List<Ingredient> getIngredients() {
@@ -70,8 +63,4 @@ public class Menus {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return ""+restaurant;
-    }
 }
