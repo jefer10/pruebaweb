@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name="restaurante")
 public class Restaurante {
 
+    //propiedades de la entidad
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_restaurante")
@@ -30,10 +31,11 @@ public class Restaurante {
     @Column(name = "hora_cierre")
     private String hora_cierre;
 
-    @OneToMany(mappedBy = "restauranteID")//propiedad de la clase menu
+    //relaciones entre entidades
+    @OneToMany(mappedBy = "restaurante")//propiedad de la clase menu
     private List<Menu> menus;
 
-
+//getter y setter
     public Integer getId_restaurante() {
         return id_restaurante;
     }

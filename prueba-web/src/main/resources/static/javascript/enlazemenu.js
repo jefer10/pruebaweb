@@ -51,6 +51,8 @@ function actualizar(comp){
     redireccionarUpdate();
 
 }
+
+
 function eliminar(comp){
 
     var requestOptions = {

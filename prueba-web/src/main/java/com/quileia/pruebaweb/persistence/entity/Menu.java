@@ -9,6 +9,7 @@ import java.util.List;
 @Table(name="menu")
 public class Menu {
 
+    //propiedades de la entidad
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "id_menu")
@@ -23,9 +24,14 @@ public class Menu {
     @Column(name = "precio")
     private  Double precio;
 
-    @JoinColumn(name = "id_restaurante")//el nombre de la llave foranea en la tabla
+    @Column(name = "id_restaurante")
+    private Integer restauranteID;
+
+    //Relaciones entre entidades
+
+    @JoinColumn(name = "id_restaurante", insertable=false,updatable = false)//el nombre de la llave foranea en la tabla
     @ManyToOne(optional = true)//para que exista menu sin restaurante
-    private Restaurante restauranteID;
+    private Restaurante restaurante;
 
 
     @JoinTable(name = "ingrediente_menu",//tabla de llaves
@@ -34,6 +40,24 @@ public class Menu {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingrediente> ingredientes;
 
+
+    ///getter y setter
+
+    public Integer getRestauranteID() {
+        return restauranteID;
+    }
+
+    public void setRestauranteID(Integer restauranteID) {
+        this.restauranteID = restauranteID;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
+    }
 
     public Integer getId_menu() {
         return id_menu;
@@ -67,13 +91,6 @@ public class Menu {
         this.precio = precio;
     }
 
-    public Restaurante getRestauranteID() {
-        return restauranteID;
-    }
-
-    public void setRestauranteID(Restaurante restauranteID) {
-        this.restauranteID = restauranteID;
-    }
 
     public List<Ingrediente> getIngredientes() {
         return ingredientes;

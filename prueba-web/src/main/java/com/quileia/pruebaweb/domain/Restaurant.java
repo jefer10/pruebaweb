@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Restaurant {
 
+    //propiedades de la entidad
     private int restaurantId;
     private String business_name;//razon social
     private String tradename;//nombre comercial
@@ -11,7 +12,11 @@ public class Restaurant {
     private String city;
     private String opening_time;
     private String closing_time;
+
+    //relaciones
     private List<Menus>menusd;
+
+    //setter y getter
 
     public int getRestaurantId() {
         return restaurantId;

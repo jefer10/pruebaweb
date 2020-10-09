@@ -8,15 +8,18 @@ public class Menus {
     private String type_menu;
     private String name_menu;
     private double price;
+    private int restaurantId;
+
     private Restaurant restaurant;
     private List<Ingredient> ingredients;
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+
+    public int getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public void setRestaurantId(int restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public Restaurant getRestaurant() {
@@ -25,6 +28,14 @@ public class Menus {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public int getMenuId() {

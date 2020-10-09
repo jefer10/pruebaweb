@@ -109,3 +109,28 @@ function menuBebidas(){
       })
 }
 
+function redireccionarUpdate(){
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/actualizarMenu';
+}
+
+function actualizar(comp){
+    let id=comp.value;
+    console.log(id);
+    localStorage.setItem("ID1",id);
+    redireccionarUpdate();
+}
+
+
+function eliminar(comp){
+
+    var requestOptions = {
+      method: 'DELETE',
+      redirect: 'follow'
+    };
+    let url='http://localhost:8090/restaurante/apiv1/menu/delete/'+comp
+    fetch(url, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+    location.href='http://localhost:8090/restaurante/apiv1/usuario/Menu-list';
+
+}

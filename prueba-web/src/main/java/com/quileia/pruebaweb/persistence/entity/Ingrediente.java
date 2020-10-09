@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "ingrediente")
 public class Ingrediente {
 
+    //propiedad de la entidad
     @Id
     @Column(name = "id_ingrediente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +19,15 @@ public class Ingrediente {
     @Column(name="calorias")
     private Integer calorias;
 
+    //relaciones entre las entidades
+
     //@ManyToMany(mappedBy = "ingrediente")
     //@MapsId("id_menu")//para  indicar a que llave pertenece
     @ManyToMany(mappedBy="ingredientes" ,targetEntity = Menu.class)
     private List<Menu> menus;
 
+
+    //gettet y setter
     public Integer getId_ingrediente() {
         return id_ingrediente;
     }

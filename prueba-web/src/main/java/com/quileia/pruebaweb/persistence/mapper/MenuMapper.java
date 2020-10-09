@@ -12,7 +12,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring",  uses = {RestaurantMapper.class, IngredienteMapper.class})
+@Mapper(componentModel = "spring",  uses = {IngredienteMapper.class})
 public interface MenuMapper {
 
 
@@ -22,7 +22,7 @@ public interface MenuMapper {
             @Mapping(source = "nombre_menu",   target = "name_menu"),
             @Mapping(source = "precio",        target = "price"),
             @Mapping(source = "ingredientes",  target = "ingredients"),
-            //@Mapping(source = "restauranteID", target = "restaurant")
+            @Mapping(source = "restauranteID", target = "restaurantId")
 
     })
     Menus toMenuS(Menu menu);

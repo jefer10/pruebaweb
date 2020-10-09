@@ -23,7 +23,7 @@ public class MenuController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Menus> getRestaurant(@PathVariable("id") int id){
+    public ResponseEntity<Menus> getByID(@PathVariable("id") int id){
         return menuService.getByID(id)
                 .map(menu -> new ResponseEntity<>(menu,HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -53,10 +53,10 @@ public class MenuController {
 
     }
 
-    @GetMapping("/find")
-    public ResponseEntity<List<Menus>> findTypeandIdRes(@RequestParam(name = "type",defaultValue = "1") int type, @RequestParam(name = "id",defaultValue = "1") int id){
-        return new ResponseEntity<>(menuService.findByTipomenuAndIdrestaurante(type,id),HttpStatus.OK);
-    }
+    //@GetMapping("/find")
+    //public ResponseEntity<List<Menus>> findTypeandIdRes(@RequestParam(name = "type",defaultValue = "1") int type, @RequestParam(name = "id",defaultValue = "1") int id){
+    //    return new ResponseEntity<>(menuService.findByTipomenuAndIdrestaurante(type,id),HttpStatus.OK);
+    //}
 
     @GetMapping("/buscar/{type}/{id}")
     public ResponseEntity<List<Menus>> find(@PathVariable("type") int type, @PathVariable("id") int id){
