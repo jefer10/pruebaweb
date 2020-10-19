@@ -1,13 +1,16 @@
 package com.quileia.pruebaweb.domain.repository;
 
+import com.quileia.pruebaweb.domain.Ingredient;
 import com.quileia.pruebaweb.domain.Menus;
 import com.quileia.pruebaweb.persistence.crud.MenuCrudRepository;
+import com.quileia.pruebaweb.persistence.entity.Ingrediente;
 import com.quileia.pruebaweb.persistence.entity.Menu;
 import com.quileia.pruebaweb.persistence.entity.Restaurante;
 import com.quileia.pruebaweb.persistence.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +22,8 @@ public class MunusRepository implements MenusRepository{
     private MenuCrudRepository menuCrudRepository;
     @Autowired
     private MenuMapper menuMapper;
+    @Autowired
+    IngredientRepository ingredientRepository;
 
     @Override
     public List<Menus> getAll() {
@@ -42,10 +47,22 @@ public class MunusRepository implements MenusRepository{
 
     @Override
     public Menus create(Menus menus) {
-        Menu menu=menuMapper.toMenu(menus);
-        menu=menuCrudRepository.save(menu);
-        Menus menus1=menuMapper.toMenuS(menu);
-        return menus1;
+        if (menus.getIngredients() != null) {
+            List<Ingredient> ingredientList=menus.getIngredients();
+            List<Ingredient> ingredientf= ingredientRepository.saveAll(ingredientList);
+            menus.setIngredients(ingredientf);
+            Menu menu=menuMapper.toMenu(menus);
+            menu=menuCrudRepository.save(menu);
+            Menus menus1=menuMapper.toMenuS(menu);
+            return menus1;
+
+        }else {
+
+            Menu menu=menuMapper.toMenu(menus);
+            menu=menuCrudRepository.save(menu);
+            Menus menus1=menuMapper.toMenuS(menu);
+            return menus1;
+        }
     }
 
     @Override
@@ -55,6 +72,7 @@ public class MunusRepository implements MenusRepository{
 
     @Override
     public void updateByID(Menus menus) {
+
         Menu menu=menuMapper.toMenu(menus);
         menuCrudRepository.save(menu);
     }

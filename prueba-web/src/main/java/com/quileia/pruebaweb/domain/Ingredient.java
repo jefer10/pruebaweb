@@ -35,4 +35,13 @@ public class Ingredient {
     public void setCalories(Integer calories) {
         this.calories = calories;
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "ingredientId=" + ingredientId +
+                ", name_ingredient='" + name_ingredient + '\'' +
+                ", calories=" + calories +
+                '}';
+    }
 }

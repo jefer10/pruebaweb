@@ -1,6 +1,7 @@
 package com.quileia.pruebaweb.domain.repository;
 
 import com.quileia.pruebaweb.domain.Ingredient;
+import com.quileia.pruebaweb.domain.Menus;
 
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface IngredientRepository {
     public Ingredient create(Ingredient ingredient);
     public void deleteByID(int id);
     public void updateByID(Ingredient ingredient);
+    public List<Ingredient> saveAll(List<Ingredient> ingredientIterable);
 }

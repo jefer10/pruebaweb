@@ -1,5 +1,8 @@
 package com.quileia.pruebaweb.domain;
 
+import com.quileia.pruebaweb.persistence.entity.Ingrediente;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Menus {
@@ -63,4 +66,22 @@ public class Menus {
         this.price = price;
     }
 
+    public void addIngredient(Ingredient ingredient1){
+        if(this.ingredients == null){
+            this.ingredients = new ArrayList<>();
+        }
+        this.ingredients.add(ingredient1);
+    }
+
+    @Override
+    public String toString() {
+        return "Menus{" +
+                "menuId=" + menuId +
+                ", type_menu='" + type_menu + '\'' +
+                ", name_menu='" + name_menu + '\'' +
+                ", price=" + price +
+                ", restaurantId=" + restaurantId +
+                ", ingredients=" + ingredients +
+                '}';
+    }
 }

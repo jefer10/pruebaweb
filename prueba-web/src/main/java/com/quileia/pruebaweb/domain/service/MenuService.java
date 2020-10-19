@@ -2,6 +2,7 @@ package com.quileia.pruebaweb.domain.service;
 
 import com.quileia.pruebaweb.domain.Ingredient;
 import com.quileia.pruebaweb.domain.Menus;
+import com.quileia.pruebaweb.domain.repository.IngredientRepository;
 import com.quileia.pruebaweb.domain.repository.MenusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class MenuService {
 
     @Autowired
     MenusRepository menusRepository;
-
+    @Autowired
+    IngredientRepository ingredientRepository;
 
     public List<Menus> getAll(){
         return menusRepository.getAll();
@@ -65,18 +67,45 @@ public class MenuService {
 
     public Menus create(Menus menus) {
         List<Ingredient> ingredient = menus.getIngredients();
-        return menusRepository.create(menus);
+        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu:::"+ingredient.toString());
+        System.out.println(menus.toString());
+        Boolean si=calorias2000(ingredient);
+        if (si){
+            return menusRepository.create(menus);
+        }else
+        return null;
     }
 
 
-    public Boolean updateByID(Menus menus){
-        menusRepository.updateByID(menus);
-        return true;
+    public Boolean updateByID(Menus menus) {
+        List<Ingredient> ingredient = menus.getIngredients();
+        System.out.println("ppppppppppppppppppppppppppppp:::" + ingredient.toString());
+        System.out.println(menus.toString());
+        Boolean si = calorias2000(ingredient);
+        if (si) {
+            menusRepository.updateByID(menus);
+            return true;
+        } else{
+            return false;
+        }
     }
 
 
     public List<Menus> findByTipomenuAndIdrestaurante(int type, int Idresta){
         return menusRepository.findByTipo_menuAndId_restaurante(type,Idresta);
+    }
+    
+    public boolean calorias2000(List<Ingredient> ingredientList){
+        Integer caloria=0;
+        for (Ingredient ingredient:ingredientList) {
+            caloria=ingredient.getCalories()+caloria;
+        }
+        System.out.println("rrrrrrrrrrrrrrrrrrrrrrr:"+caloria);
+        if (caloria<2000){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

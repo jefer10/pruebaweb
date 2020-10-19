@@ -3,6 +3,7 @@ package com.quileia.pruebaweb.persistence.entity;
 import org.hibernate.annotations.ValueGenerationType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,8 +36,8 @@ public class Menu {
 
 
     @JoinTable(name = "ingrediente_menu",//tabla de llaves
-            joinColumns = @JoinColumn(name="id_menu",insertable = false,updatable = false),// FK para tabla padre
-            inverseJoinColumns = @JoinColumn(name="id_ingrediente",insertable = false,updatable = false))//FK para tabla hijo
+            joinColumns = @JoinColumn(name="id_menu"),// FK para tabla padre, de la tabla de llaves
+            inverseJoinColumns = @JoinColumn(name="id_ingrediente"))//FK para tabla hijo, de la tabla de llaves
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingrediente> ingredientes;
 
@@ -100,6 +101,23 @@ public class Menu {
         this.ingredientes = ingredientes;
     }
 
+    public void addIngredientes(Ingrediente ingrediente){
+        if(this.ingredientes == null){
+            this.ingredientes = new ArrayList<>();
+        }
+        this.ingredientes.add(ingrediente);
+    }
 
-
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id_menu=" + id_menu +
+                ", tipo_menu=" + tipo_menu +
+                ", nombre_menu='" + nombre_menu + '\'' +
+                ", precio=" + precio +
+                ", restauranteID=" + restauranteID +
+                ", restaurante=" + restaurante +
+                ", ingredientes=" + ingredientes +
+                '}';
+    }
 }

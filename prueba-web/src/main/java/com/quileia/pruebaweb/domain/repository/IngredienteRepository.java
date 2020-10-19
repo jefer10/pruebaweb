@@ -9,6 +9,7 @@ import com.quileia.pruebaweb.persistence.mapper.IngredienteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,5 +60,16 @@ public class IngredienteRepository implements IngredientRepository{
     public void updateByID(Ingredient ingredient) {
         Ingrediente ingrediente=ingredienteMapper.toIngrediente(ingredient);
         ingredienteCrudRepository.save(ingrediente);
+    }
+
+    @Override
+    public List<Ingredient> saveAll(List<Ingredient> ingredientList) {
+        List<Ingredient> ingredients=new ArrayList<>();
+        for (int i = 0; i < ingredientList.size(); i++) {
+            Ingrediente ingrediente=ingredienteMapper.toIngrediente(ingredientList.get(i));
+            Ingrediente ingrediente1=ingredienteCrudRepository.save(ingrediente);
+            ingredients.add(ingredienteMapper.toIngredient(ingrediente1));
+        }
+        return ingredients;
     }
 }
